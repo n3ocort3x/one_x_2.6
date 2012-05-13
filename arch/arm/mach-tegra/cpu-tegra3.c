@@ -295,7 +295,7 @@ static noinline int tegra_cpu_speed_balance(void)
 }
 
 
-void updateCurrentCPUTotalActiveTime()
+void updateCurrentCPUTotalActiveTime(void)
 {
 	int active_cpus_count = 0;
 
@@ -310,7 +310,7 @@ void updateCurrentCPUTotalActiveTime()
 }
 
 
-void printCPUTotalActiveTime()
+void printCPUTotalActiveTime(void)
 {
 	updateCurrentCPUTotalActiveTime();
 
@@ -436,15 +436,6 @@ static void tegra_auto_cpuplug_work_func(struct work_struct *work)
 				up = false;
 				hp_stats_update(cpu, false);
 			} else if (!is_lp_cluster() && !no_lp) {
-
-				/* Invalid request, why put sth down that is not there?
-				   This would cause a NULL pointer dereference in
-				   arch/arm/mach-tegra/clock.c: clk_set_parent & clk_get_rate
-				   show-p1984, 05.08.12 (MM/DD/YY)
-				 */
-				if (!cpu_clk || !cpu_lp_clk)
-					break;
-
 				if (!clk_set_parent(cpu_clk, cpu_lp_clk)) {
 					hp_stats_update(CONFIG_NR_CPUS, true);
 					hp_stats_update(0, false);
