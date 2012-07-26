@@ -409,20 +409,6 @@ config TEGRA_EMC_TO_DDR_CLOCK
 	default "2" if ARCH_TEGRA_2x_SOC
 	default "1"
 
-config TEGRA_INTERACTIVE_GOV_ON_EARLY_SUSPEND
-	bool "Use interactive cpu frequency governor when device enters early suspend"
-	depends on HAS_EARLYSUSPEND && CPU_FREQ && !TEGRA_CONSERVATIVE_GOV_ON_EARLY_SUSPEND
-	default y
-	help
-	 Also will restore to original cpu frequency governor when device is resumed
-
-config TEGRA_CONSERVATIVE_GOV_ON_EARLY_SUSPEND
-	bool "Use conservative cpu frequency governor when device enters early suspend"
-	depends on HAS_EARLYSUSPEND && CPU_FREQ
-	default n
-	help
-	 Also will restore to original cpu frequency governor when device is resumed
-
 config TEGRA_LEGACY_AUDIO
 	bool "Enable Tegra Legacy Audio APIs"
 	default n
@@ -605,4 +591,3 @@ config ANDROID_RAM_CONSOLE_APPEND_PMIC_STATUS_BITS
 	  Append PMIC status bits to end of /proc/last_kmsg for
 	  checking the boot / reset reason in detail
 endif
-
