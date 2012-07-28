@@ -1398,11 +1398,7 @@ static struct synaptics_i2c_rmi_platform_data edge_ts_3k_data_XB[] = {
 		.abs_x_max = 1100,
 		.abs_y_min = 0,
 		.abs_y_max = 1770,
-<<<<<<< HEAD
-		.notifyFinger = restoreCap, /* restore browser cap,*/
-=======
 		.notifyFinger = NULL, /* speedupCPU, */
->>>>>>> ad74236... I was wrong about that. Revert "board-endeavoru: touchscreen: don't force-speedup CPU at pressure"
 		//.flags = SYNAPTICS_FLIP_Y,
 		.gpio_irq = TOUCH_GPIO_IRQ,
 		.default_config = 1,
