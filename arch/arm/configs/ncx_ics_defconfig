@@ -1,7 +1,7 @@
 #
 # Automatically generated make config: don't edit
 # Linux/arm 2.6.39.4 Kernel Configuration
-# Mon July 30 17:32:50 2012
+# Thu August 30 21:32:50 2012
 #
 CONFIG_ARM=y
 CONFIG_HAVE_PWM=y
