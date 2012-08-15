@@ -132,6 +132,12 @@ config CPU_FREQ_DEFAULT_GOV_LAGFREE
           governor. If unsure have a look at the help section of the
           driver. Fallback governor will be the performance governor.
 
+config CPU_FREQ_DEFAULT_GOV_SMARTASS2
+        bool "smartass2"
+        select CPU_FREQ_GOV_SMARTASS2
+        help
+          Use the CPUFreq governor 'smartassV2' as default.
+
 endchoice
 
 config CPU_FREQ_GOV_PERFORMANCE
@@ -233,5 +239,12 @@ config CPU_FREQ_GOV_LAGFREE
           its optimisation for better suitability in a battery powered
           environment.  The frequency is gracefully increased and decreased
           rather than jumping to 100% when speed is required.
+
+config CPU_FREQ_GOV_SMARTASS2
+        tristate "'smartassV2' cpufreq governor"
+        depends on CPU_FREQ
+        help
+          'smartassV2' - a "smart" governor
+          If in doubt, say N.
 
 endif	# CPU_FREQ
